@@ -2,12 +2,14 @@ import axios from 'axios'
 
 const SlackButton = () => {
   const sendMessageToSlack = () => {
+    const slackHookUrl =
+      'https://hooks.slack.com/services/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'
     const message = {
       channel: '#dayoff',
       text: 'Hello, Slack!',
     }
     axios
-      .post(process.env.SLACK_HOOK_URL, message, {
+      .post(slackHookUrl, message, {
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
