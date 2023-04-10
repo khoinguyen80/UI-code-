@@ -1,4 +1,4 @@
-import Login from '@components/Login/Login'
+import Auth from '@root/Auth/Auth'
 import MainLayouts from '@root/layouts/MainLayout'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
@@ -27,7 +27,7 @@ export default function App() {
         theme='light'
       />
       <Routes>
-        <Route element={<Login onLogin={handleLogin} />} path='/login' />
+        <Route element={<Auth onLogin={handleLogin} />} path='/login' />
         <Route
           element={loggedIn ? <MainLayouts /> : <Navigate to='/login' />}
           path='/dashboard'
