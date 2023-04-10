@@ -1,4 +1,5 @@
 import image from '@root/assets/Login.jpg'
+import SlackButton from '@root/slack/SlackNottification'
 import { Checkbox, Form, Input, Button } from 'antd'
 import { toast } from 'react-toastify'
 import { AuthStyled } from './Auth.styled'
@@ -65,6 +66,7 @@ const Auth = () => {
             </Button>
           </Form.Item>
         </Form>
+        <SlackButton />
       </div>
     </AuthStyled>
   )
