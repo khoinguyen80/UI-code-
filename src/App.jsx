@@ -1,17 +1,11 @@
 import Auth from '@root/Auth/Auth'
 import MainLayouts from '@root/layouts/MainLayout'
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = useState(true)
-
-  const handleLogin = () => {
-    // TODO: implement login logic here
-    setLoggedIn(true)
-  }
   return (
     <BrowserRouter>
       <ToastContainer
@@ -27,11 +21,8 @@ export default function App() {
         theme='light'
       />
       <Routes>
-        <Route element={<Auth onLogin={handleLogin} />} path='/login' />
-        <Route
-          element={loggedIn ? <MainLayouts /> : <Navigate to='/login' />}
-          path='/dashboard'
-        />
+        <Route element={<Auth />} path='/login' />
+        <Route exact element={<MainLayouts />} path='/dashboard' />
       </Routes>
     </BrowserRouter>
   )

@@ -10,6 +10,8 @@ const SlackButton = () => {
     }
     axios
       .post(slackHookUrl, message, {
+        withCredentials: true,
+        origin: 'http://localhost:5173',
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',

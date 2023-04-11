@@ -1,13 +1,19 @@
 import image from '@root/assets/Login.jpg'
-import SlackButton from '@root/slack/SlackNottification'
+import { loginRequest } from '@root/redux/actions'
 import { Checkbox, Form, Input, Button } from 'antd'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import { AuthStyled } from './Auth.styled'
 
 const Auth = () => {
-  const onFinish = (values) => {
-    console.log('Success:', values)
-    toast.success('Welcome back!')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const dispatch = useDispatch()
+  const handleSubmitForm = (e) => {
+    e.preventDefault()
+    dispatch(loginRequest(username, password))
   }
 
   const onFinishFailed = (errorInfo) => {
@@ -23,7 +29,7 @@ const Auth = () => {
         <Form
           initialValues={{ remember: true }}
           name='login-form'
-          onFinish={onFinish}
+          onFinish={handleSubmitForm}
           onFinishFailed={onFinishFailed}
         >
           <p className='form-title'>Welcome back</p>
@@ -32,14 +38,22 @@ const Auth = () => {
             name='username'
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
-            <Input placeholder='Username' />
+            <Input
+              placeholder='Username'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
           </Form.Item>
 
           <Form.Item
             name='password'
             rules={[{ required: true, message: 'Please input your password!' }]}
           >
-            <Input.Password placeholder='Password' />
+            <Input.Password
+              placeholder='Password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </Form.Item>
 
           <Form.Item name='remember' valuePropName='checked'>
@@ -66,7 +80,6 @@ const Auth = () => {
             </Button>
           </Form.Item>
         </Form>
-        <SlackButton />
       </div>
     </AuthStyled>
   )
