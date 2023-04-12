@@ -1,5 +1,5 @@
-import { Card, Row, Col, Button, Form, Input } from 'antd'
-
+import { Card, Row, Col, Form, Input } from 'antd'
+import { Button } from '../Style/Button'
 const validateMessages = {
   required: '${label} is required!',
   types: {
@@ -91,12 +91,8 @@ export default function CreateMember() {
                   <Input min={1} placeholder={'Slack Id'} type='number' />
                 </Form.Item>
                 <Form.Item>
-                  <Button htmlType='submit' type='primary'>
-                    Submit
-                  </Button>
-                  <Button danger htmlType='cancel' type='primary'>
-                    Cancel
-                  </Button>
+                  <Button $primary='submit'>Submit</Button>
+                  <Button $delete='cancel'>Cancel</Button>
                 </Form.Item>
               </Form>
             </Col>
