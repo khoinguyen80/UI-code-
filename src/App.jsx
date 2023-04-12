@@ -4,8 +4,9 @@ import MainLayouts from '@root/layouts/MainLayout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import CreateMember from './components/CreateMember/Createmember'
 import TestStyle from './layouts/TestStyle'
+import ManagerGroupDetail from './components/ManagerGroupDetail/ManagerGroupDetail'
+import CreateMember from './components/CreateMember/Createmember'
 
 export default function App() {
   return (
@@ -27,6 +28,11 @@ export default function App() {
         <Route exact element={<MainLayouts />} path='/dashboard' />
         <Route exact element={<TestStyle />} path='/teststyle' />
         <Route element={<CreateMember />} path='createmember' />
+        <Route
+          exact
+          element={<ManagerGroupDetail />}
+          path='/managergroupdetail'
+        />
       </Routes>
     </BrowserRouter>
   )
