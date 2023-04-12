@@ -1,12 +1,10 @@
-import Auth from '@root/Auth/Auth'
 import MainLayouts from '@root/layouts/MainLayout'
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import TestStyle from './layouts/TestStyle'
-import ManagerGroupDetail from './components/ManagerGroupDetail/ManagerGroupDetail'
-import CreateMember from './components/CreateMember/Createmember'
+import Dashboard from './pages/Dashboard/Dashboard'
+import CreateUser from './pages/User/CreateUser/CreateUser'
+import ListUser from './pages/User/ListUser/ListUser'
 
 export default function App() {
   return (
@@ -23,17 +21,13 @@ export default function App() {
         rtl={false}
         theme='light'
       />
-      <Routes>
-        <Route element={<Auth />} path='/login' />
-        <Route exact element={<MainLayouts />} path='/dashboard' />
-        <Route exact element={<TestStyle />} path='/teststyle' />
-        <Route element={<CreateMember />} path='createmember' />
-        <Route
-          exact
-          element={<ManagerGroupDetail />}
-          path='/managergroupdetail'
-        />
-      </Routes>
+      <MainLayouts>
+        <Routes>
+          <Route exact element={<Dashboard />} path='/dashboard' />
+          <Route exact element={<ListUser />} path='/user/list' />
+          <Route exact element={<CreateUser />} path='/user/create' />
+        </Routes>
+      </MainLayouts>
     </BrowserRouter>
   )
 }

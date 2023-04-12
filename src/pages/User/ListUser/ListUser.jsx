@@ -1,0 +1,44 @@
+import Breadcrumbs from '@root/components/BreadCrumb/BreadCrumb'
+import { Table } from 'antd'
+
+const ListUser = () => {
+  const dataSource = [
+    {
+      key: '1',
+      name: 'Mike',
+      age: 32,
+      address: '10 Downing Street',
+    },
+    {
+      key: '2',
+      name: 'John',
+      age: 42,
+      address: '10 Downing Street',
+    },
+  ]
+
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+  ]
+  return (
+    <>
+      <Breadcrumbs items={['Users', 'List users']} />
+      <Table columns={columns} dataSource={dataSource} />;
+    </>
+  )
+}
+export default ListUser

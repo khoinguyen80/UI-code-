@@ -1,8 +1,13 @@
-import { Breadcrumb, Layout, Menu } from 'antd'
+import { TwitterCircleFilled, PoweroffOutlined } from '@ant-design/icons'
+import { Layout, Menu, Space, Typography, Avatar, Button } from 'antd'
+import {} from 'antd'
 import { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+
 import { navigations } from './navigations'
 
+const { Text } = Typography
 const { Header, Content, Footer, Sider } = Layout
 
 const LogoStyled = styled.div`
@@ -20,7 +25,8 @@ const LogoStyled = styled.div`
     -webkit-text-fill-color: transparent;
   }
 `
-const MainLayouts = () => {
+
+const MainLayouts = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false)
 
   return (
@@ -51,43 +57,55 @@ const MainLayouts = () => {
         <Header
           style={{
             padding: 0,
-            background: '#FFFFFF',
+            background: '#001529',
             position: 'sticky',
             top: 0,
             zIndex: 1,
             width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingRight: '50px',
           }}
-        />
+        >
+          <div style={{ marginLeft: '20px' }}>
+            <Button icon={<PoweroffOutlined />} type='primary'>
+              Bạn có muốn nghỉ làm hay không?
+            </Button>
+          </div>
+          <Space>
+            <Avatar
+              icon={<TwitterCircleFilled />}
+              size='large'
+              style={{ background: '#ffffff', color: '#000000' }}
+            />
+            <Text style={{ color: '#ffffff', userSelect: 'none' }}>
+              Thỏ Con Xinh Xắn
+            </Text>
+            <Button danger size='small'>
+              Đăng xuất
+            </Button>
+          </Space>
+        </Header>
         <Content
           style={{
             margin: '0 16px',
           }}
         >
-          <Breadcrumb
-            style={{
-              margin: '16px 0',
-            }}
-          >
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 3600,
-              background: '#FFFFFF',
-              overflowY: 'auto',
-            }}
-          >
-            Bill is a cat.
-          </div>
+          {children}
         </Content>
         <Footer
           style={{
             textAlign: 'center',
+            height: '50px',
+            padding: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999,
           }}
         >
-          Ant Design ©2023 Created by Ant UED
+          ©2023 Created by Shooting Stars
         </Footer>
       </Layout>
     </Layout>
