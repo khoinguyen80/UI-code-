@@ -9,6 +9,8 @@ export default defineConfig({
     alias: {
       '@components': path.resolve('./src/components'),
       '@root': path.resolve('./src'),
+      '@util': path.resolve('./src/util'),
+      '@redux': path.resolve('./src/redux'),
     },
   },
 })

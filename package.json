@@ -68,5 +68,8 @@
     "*.(jsx|js|json|css|html)": [
       "precheck"
     ]
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }

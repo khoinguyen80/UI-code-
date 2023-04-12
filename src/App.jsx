@@ -4,6 +4,7 @@ import MainLayouts from '@root/layouts/MainLayout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import TestStyle from './layouts/TestStyle'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
       <Routes>
         <Route element={<Auth />} path='/login' />
         <Route exact element={<MainLayouts />} path='/dashboard' />
+        <Route exact element={<TestStyle />} path='/teststyle' />
       </Routes>
     </BrowserRouter>
   )
