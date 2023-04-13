@@ -1,4 +1,16 @@
-import { FileOutlined, PieChartOutlined } from '@ant-design/icons'
+import {
+  FileOutlined,
+  PieChartOutlined,
+  UsergroupAddOutlined,
+  UserOutlined,
+  PlusCircleOutlined,
+  UnorderedListOutlined,
+  BellOutlined,
+  LineChartOutlined,
+  SyncOutlined,
+  CodepenOutlined,
+  HistoryOutlined,
+} from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 
 export const navigations = [
@@ -11,7 +23,7 @@ export const navigations = [
       {
         key: 2,
         label: <Link to='/dashboard'>Dashboard</Link>,
-        icon: <PieChartOutlined />,
+        icon: <LineChartOutlined />,
         path: 'dashboard',
       },
       {
@@ -22,8 +34,8 @@ export const navigations = [
       },
       {
         key: 4,
-        label: <Link to='/daysoff'>Day off</Link>,
-        icon: <PieChartOutlined />,
+        label: <Link to='/daysoff'>History Day Off</Link>,
+        icon: <HistoryOutlined />,
         path: 'daysoff',
       },
     ],
@@ -37,25 +49,25 @@ export const navigations = [
       {
         key: 6,
         label: <Link to='members'>Members</Link>,
-        icon: <PieChartOutlined />,
+        icon: <UserOutlined />,
         path: 'members',
       },
       {
         key: 7,
         label: <Link to='manager/groups'>Groups</Link>,
-        icon: <PieChartOutlined />,
+        icon: <UsergroupAddOutlined />,
         path: 'manager/groups',
       },
       {
         key: 8,
         label: <Link to='manager/notification'>Notifications</Link>,
-        icon: <PieChartOutlined />,
+        icon: <BellOutlined />,
         path: 'manager/notification',
       },
       {
         key: 9,
         label: <Link to='sync'>Sync</Link>,
-        icon: <PieChartOutlined />,
+        icon: <SyncOutlined />,
         path: 'sync',
       },
     ],
@@ -69,7 +81,7 @@ export const navigations = [
       {
         key: 11,
         label: <Link to='workspaces'>Workspaces</Link>,
-        icon: <PieChartOutlined />,
+        icon: <CodepenOutlined />,
         path: 'workspaces',
       },
     ],
@@ -83,13 +95,13 @@ export const navigations = [
       {
         key: 13,
         label: <Link to='staff/create-request'>Create Request</Link>,
-        icon: <PieChartOutlined />,
+        icon: <PlusCircleOutlined />,
         path: 'create-request',
       },
       {
         key: 14,
-        label: <Link to='/staff/list-request'>List Request</Link>,
-        icon: <PieChartOutlined />,
+        label: <Link to='/staff/list-request'>List Day Off</Link>,
+        icon: <UnorderedListOutlined />,
         path: 'list-request',
       },
     ],
