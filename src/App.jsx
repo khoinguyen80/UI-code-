@@ -2,7 +2,9 @@ import MainLayouts from '@root/layouts/MainLayout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+
 import Dashboard from './pages/Dashboard/Dashboard'
+import CreateMember from './pages/Member/CreateMember'
 import CreateRequest from './pages/User/CreateRequest'
 
 export default function App() {
@@ -28,6 +30,7 @@ export default function App() {
             element={<CreateRequest />}
             path='staff/create-request'
           />
+          <Route element={<CreateMember />} path='createmember' />
         </Routes>
       </MainLayouts>
     </BrowserRouter>

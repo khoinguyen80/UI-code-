@@ -1,5 +1,6 @@
-import { Card, Row, Col, Form, Input } from 'antd'
-import { Button } from '../Style/Button'
+import Breadcrumbs from '@root/components/BreadCrumb/BreadCrumb'
+import ContentLayout from '@root/layouts/ContentLayout'
+import { Card, Row, Col, Form, Input, Button, Space } from 'antd'
 const validateMessages = {
   required: '${label} is required!',
   types: {
@@ -9,9 +10,10 @@ const validateMessages = {
     range: '${label} must be between ${min} and ${max}',
   },
 }
-export default function CreateMember() {
-  return (
-    <>
+const CreateMember = () => (
+  <>
+    <Breadcrumbs items={['Members', 'Create members']} title='Create User' />
+    <ContentLayout>
       <div className='site-card-border-less-wrapper'>
         <Card
           bordered={true}
@@ -88,17 +90,22 @@ export default function CreateMember() {
                     },
                   ]}
                 >
-                  <Input min={1} placeholder={'Slack Id'} type='number' />
+                  <Input placeholder={'Slack Id'} type='string' />
                 </Form.Item>
                 <Form.Item>
-                  <Button $primary='submit'>Submit</Button>
-                  <Button $delete='cancel'>Cancel</Button>
+                  <Space direction='horizontal' size={15}>
+                    <Button type='primary'>Submit</Button>
+                    <Button danger type='primary'>
+                      Cancel
+                    </Button>
+                  </Space>
                 </Form.Item>
               </Form>
             </Col>
           </Row>
         </Card>
       </div>
-    </>
-  )
-}
+    </ContentLayout>
+  </>
+)
+export default CreateMember
