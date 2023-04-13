@@ -1,4 +1,3 @@
-import Breadcrumbs from '@root/components/BreadCrumb/BreadCrumb'
 import ContentLayout from '@root/layouts/ContentLayout'
 import { Col, Row, Input, Button } from 'antd'
 import React from 'react'
@@ -11,7 +10,6 @@ export const ColStyled = styled.div`
   justify-content: flex-end;
   margin-top: 10px;
   margin-right: 10px;
-  }
 `
 export const Title = styled.div`
   padding-left: 30px;
@@ -58,10 +56,6 @@ export const UserTag = styled.div`
 export default function ManagerGroupDetail() {
   return (
     <>
-      <Breadcrumbs
-        items={['Manager', 'Group', 'Detail']}
-        title='Manager Group Detail'
-      />
       <ContentLayout>
         <Row>
           <Col span={6}>

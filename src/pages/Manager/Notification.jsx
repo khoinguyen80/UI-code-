@@ -1,4 +1,3 @@
-import Breadcrumbs from '@root/components/BreadCrumb/BreadCrumb'
 import ContentLayout from '@root/layouts/ContentLayout'
 import { Col, Row, Switch, Button } from 'antd'
 import React from 'react'
@@ -10,7 +9,6 @@ export const ColStyled = styled.div`
   justify-content: flex-end;
   margin-top: 10px;
   margin-right: 10px;
-  }
 `
 export const Title = styled.div`
   padding-left: 30px;
@@ -60,10 +58,6 @@ const onChange = (checked) => {
 export default function ManagerGroupDetail() {
   return (
     <>
-      <Breadcrumbs
-        items={['Manager', 'Notification']}
-        title='Manager Notification'
-      />
       <ContentLayout>
         <Row>
           <Col span={6}>

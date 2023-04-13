@@ -1,8 +1,2 @@
-import Breadcrumbs from '@root/components/BreadCrumb/BreadCrumb'
-
-const Dashboard = () => (
-  <>
-    <Breadcrumbs items={['Home', 'Dashboard']} />
-  </>
-)
+const Dashboard = () => <>Dashboard</>
 export default Dashboard

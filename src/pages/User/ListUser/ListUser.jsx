@@ -1,4 +1,3 @@
-import Breadcrumbs from '@root/components/BreadCrumb/BreadCrumb'
 import { Table } from 'antd'
 
 const ListUser = () => {
@@ -36,7 +35,6 @@ const ListUser = () => {
   ]
   return (
     <>
-      <Breadcrumbs items={['Users', 'List users']} />
       <Table columns={columns} dataSource={dataSource} />;
     </>
   )

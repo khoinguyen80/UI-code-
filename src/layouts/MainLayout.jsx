@@ -1,4 +1,5 @@
 import { TwitterCircleFilled, PoweroffOutlined } from '@ant-design/icons'
+import Breadcrumbs from '@root/components/BreadCrumb/BreadCrumb'
 import {
   Layout,
   Menu,
@@ -108,6 +109,7 @@ const MainLayouts = ({ children }) => {
               margin: '0 16px',
             }}
           >
+            <Breadcrumbs />
             {children}
           </Content>
           <Footer

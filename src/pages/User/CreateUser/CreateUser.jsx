@@ -1,5 +1,4 @@
 import { PlusOutlined } from '@ant-design/icons'
-import Breadcrumbs from '@root/components/BreadCrumb/BreadCrumb'
 import ContentLayout from '@root/layouts/ContentLayout'
 
 import {
@@ -22,8 +21,6 @@ const { TextArea } = Input
 
 const CreateUser = () => (
   <>
-    <Breadcrumbs items={['Users', 'Create user']} title='Create User' />
-
     <ContentLayout>
       <Form
         labelCol={{

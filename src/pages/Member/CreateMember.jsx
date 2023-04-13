@@ -1,4 +1,3 @@
-import Breadcrumbs from '@root/components/BreadCrumb/BreadCrumb'
 import ContentLayout from '@root/layouts/ContentLayout'
 import { Card, Row, Col, Form, Input, Button, Space } from 'antd'
 const validateMessages = {
@@ -12,7 +11,6 @@ const validateMessages = {
 }
 const CreateMember = () => (
   <>
-    <Breadcrumbs items={['Members', 'Create members']} title='Create User' />
     <ContentLayout>
       <div className='site-card-border-less-wrapper'>
         <Card

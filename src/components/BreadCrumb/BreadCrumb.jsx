@@ -1,28 +1,23 @@
 import { Breadcrumb } from 'antd'
-import styled from 'styled-components'
+import { Link, useLocation } from 'react-router-dom'
 
-const BreadcrumbStyled = styled.div`
-  background: '#f5f5f5';
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  top: 64px;
-  padding: 10px 20px 10px 15px;
-  font-weight: bold;
-`
-const TitleStyled = styled.div`
-  font-size: 24px;
-`
+const Breadcrumbs = () => {
+  const location = useLocation()
+  const pathSegments = location.pathname
+    .split('/')
+    .filter((segment) => '' !== segment)
 
-const Breadcrumbs = ({ items, title = 'undefined' }) => (
-  <BreadcrumbStyled>
-    <TitleStyled>{title}</TitleStyled>
-    <Breadcrumb style={{ color: '#333' }}>
-      {items &&
-        items.map((item, index) => (
-          <Breadcrumb.Item key={index}>{item}</Breadcrumb.Item>
-        ))}
+  return (
+    <Breadcrumb style={{ margin: '16px 0' }}>
+      <Breadcrumb.Item key='home'>
+        <Link to='/dashboard'>Home</Link>
+      </Breadcrumb.Item>
+      {pathSegments.map((segment, index) => (
+        <Breadcrumb.Item key={index}>
+          {segment.replace('-', ' ')}
+        </Breadcrumb.Item>
+      ))}
     </Breadcrumb>
-  </BreadcrumbStyled>
-)
+  )
+}
 export default Breadcrumbs
