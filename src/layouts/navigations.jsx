@@ -74,4 +74,24 @@ export const navigations = [
       },
     ],
   },
+  {
+    key: 12,
+    label: 'Staff',
+    icon: <PieChartOutlined />,
+    type: 'group',
+    children: [
+      {
+        key: 13,
+        label: <Link to='staff/create-request'>Create Request</Link>,
+        icon: <PieChartOutlined />,
+        path: 'create-request',
+      },
+      {
+        key: 14,
+        label: <Link to='/staff/list-request'>List Request</Link>,
+        icon: <PieChartOutlined />,
+        path: 'list-request',
+      },
+    ],
+  },
 ]
