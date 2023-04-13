@@ -42,15 +42,15 @@ export const navigations = [
       },
       {
         key: 7,
-        label: <Link to='groups'>Groups</Link>,
+        label: <Link to='manager/groups'>Groups</Link>,
         icon: <PieChartOutlined />,
-        path: 'groups',
+        path: 'manager/groups',
       },
       {
         key: 8,
-        label: <Link to='notifications'>Notifications</Link>,
+        label: <Link to='manager/notification'>Notifications</Link>,
         icon: <PieChartOutlined />,
-        path: 'notifications',
+        path: 'manager/notification',
       },
       {
         key: 9,

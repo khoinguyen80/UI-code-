@@ -4,6 +4,8 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import Dashboard from './pages/Dashboard/Dashboard'
+import ManagerGroupDetail from './pages/Manager/ManagerGroupDetail'
+import Notification from './pages/Manager/Notification'
 import CreateMember from './pages/Member/CreateMember'
 import CreateRequest from './pages/User/CreateRequest'
 
@@ -31,6 +33,12 @@ export default function App() {
             path='staff/create-request'
           />
           <Route element={<CreateMember />} path='createmember' />
+          <Route exact element={<Notification />} path='manager/notification' />
+          <Route
+            exact
+            element={<ManagerGroupDetail />}
+            path={`manager/groups/detail`}
+          />
         </Routes>
       </MainLayouts>
     </BrowserRouter>
