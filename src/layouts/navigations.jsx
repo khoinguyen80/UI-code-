@@ -1,49 +1,76 @@
 import { FileOutlined, PieChartOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom'
 
 export const navigations = [
   {
     key: 1,
-    label: 'Dashboard',
-    icon: <PieChartOutlined />,
-    route: '/dashboard',
-  },
-  {
-    key: 2,
-    label: 'Requests',
+    label: 'Account',
     icon: <FileOutlined />,
-    route: '/requests',
+    type: 'group',
     children: [
       {
-        key: 3,
-        label: 'List requests',
+        key: 2,
+        label: <Link to='/dashboard'>Dashboard</Link>,
         icon: <PieChartOutlined />,
-        route: '/requests/list',
+        path: 'dashboard',
+      },
+      {
+        key: 3,
+        label: <Link to='/requests'>Requests</Link>,
+        icon: <PieChartOutlined />,
+        path: 'requests',
       },
       {
         key: 4,
-        label: 'Send requests',
+        label: <Link to='/daysoff'>Day off</Link>,
         icon: <PieChartOutlined />,
-        route: '/requests/create',
+        path: 'daysoff',
       },
     ],
   },
   {
     key: 5,
-    label: 'Users',
+    label: 'Manager',
     icon: <PieChartOutlined />,
-    route: '/users',
+    type: 'group',
     children: [
       {
         key: 6,
-        label: 'List users',
+        label: <Link to='members'>Members</Link>,
         icon: <PieChartOutlined />,
-        route: '/users/list',
+        path: 'members',
       },
       {
         key: 7,
-        label: 'Create users',
+        label: <Link to='groups'>Groups</Link>,
         icon: <PieChartOutlined />,
-        route: '/users/create',
+        path: 'groups',
+      },
+      {
+        key: 8,
+        label: <Link to='notifications'>Notifications</Link>,
+        icon: <PieChartOutlined />,
+        path: 'notifications',
+      },
+      {
+        key: 9,
+        label: <Link to='sync'>Sync</Link>,
+        icon: <PieChartOutlined />,
+        path: 'sync',
+      },
+    ],
+  },
+  {
+    key: 10,
+    label: 'Administrator',
+    icon: <PieChartOutlined />,
+    type: 'group',
+    children: [
+      {
+        key: 11,
+        label: <Link to='workspaces'>Workspaces</Link>,
+        icon: <PieChartOutlined />,
+        path: 'workspaces',
       },
     ],
   },
