@@ -54,7 +54,7 @@ const CreateRequest = () => {
           </Form.Item>
 
           <div style={{ textAlign: 'center' }}>
-            <Button type='primary' htmlType='submit'>
+            <Button htmlType='submit' type='primary'>
               Create Request
             </Button>
           </div>

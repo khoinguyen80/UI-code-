@@ -28,9 +28,9 @@ export const navigations = [
       },
       {
         key: 3,
-        label: <Link to='/requests'>Requests</Link>,
+        label: <Link to='/account/list-request'>Requests</Link>,
         icon: <PieChartOutlined />,
-        path: 'requests',
+        path: '/account/list-request',
       },
       {
         key: 4,

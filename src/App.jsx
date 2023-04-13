@@ -2,7 +2,7 @@ import MainLayouts from '@root/layouts/MainLayout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+import FormReviewRequest from './pages/Account/Request/FormReviewRequest'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ManagerGroupDetail from './pages/Manager/ManagerGroupDetail'
 import Notification from './pages/Manager/Notification'
@@ -38,6 +38,11 @@ export default function App() {
             exact
             element={<ManagerGroupDetail />}
             path={`manager/groups/detail`}
+          />
+          <Route
+            exact
+            element={<FormReviewRequest />}
+            path='/account/list-request'
           />
         </Routes>
       </MainLayouts>
