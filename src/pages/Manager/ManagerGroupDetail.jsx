@@ -1,59 +1,32 @@
+import { UserOutlined } from '@ant-design/icons'
+import MultipleSelect from '@root/components/MultipleSelect/MultipleSelect'
 import ContentLayout from '@root/layouts/ContentLayout'
 import { Col, Row, Input, Button } from 'antd'
 import React from 'react'
-import { AiOutlineUser } from 'react-icons/ai'
-import styled from 'styled-components'
+import { ColStyled, FieldLeft, FieldRight, SubTitle } from './Manager.styled'
 const { TextArea } = Input
 
-export const ColStyled = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
-  margin-right: 10px;
-`
-export const Title = styled.div`
-  padding-left: 30px;
-  padding-top: 25px;
-  font-size: 30px;
-  font-weight: bold;
-`
-export const SubTitle = styled.div`
-  padding-left: 30px;
-  padding-top: 25px;
-  font-size: 25px;
-  font-weight: bold;
-`
-export const FieldLeft = styled.div`
-  padding-left: 30px;
-  padding-top: 25px;
-  font-size: 20px;
-`
-export const FieldRight = styled.div`
-  padding-left: 30px;
-  padding-top: 25px;
-  font-size: 20px;
-`
+const options = [
+  {
+    avatar: <UserOutlined />,
+    name: 'a',
+  },
 
-export const InputContainer = styled.div`
-  border: black solid 1px;
-  border-radius: 5px;
-  width: 100%;
-  height: 150px;
-  display: flex;
-`
-export const UserTag = styled.div`
-  border: black solid 1px;
-  border-radius: 25px;
-  height: 30px;
-  width: auto;
-  margin-left: 15px;
-  margin-top: 10px;
-  background-color: #bfbfbf;
-  position: relative;
-  font-size: 20px;
-`
+  {
+    avatar: <UserOutlined />,
+    name: 'b',
+  },
+
+  {
+    avatar: <UserOutlined />,
+    name: 'c',
+  },
+]
 
 export default function ManagerGroupDetail() {
+  const handleChange = (value) => {
+    console.log({ message: `selected ${value}` })
+  }
   return (
     <>
       <ContentLayout>
@@ -83,16 +56,7 @@ export default function ManagerGroupDetail() {
           </Col>
           <Col span={12}>
             <FieldRight>
-              <InputContainer>
-                <UserTag style={{ color: 'white', paddingRight: '5px' }}>
-                  <AiOutlineUser style={{ marginLeft: '5px' }} />
-                  Khoa Nguyen
-                </UserTag>
-                <UserTag style={{ color: 'white', paddingRight: '5px' }}>
-                  <AiOutlineUser style={{ marginLeft: '5px' }} />
-                  Van Tran
-                </UserTag>
-              </InputContainer>
+              <MultipleSelect options={options} onChange={handleChange} />
             </FieldRight>
           </Col>
         </Row>
@@ -102,24 +66,7 @@ export default function ManagerGroupDetail() {
           </Col>
           <Col span={12}>
             <FieldRight>
-              <InputContainer>
-                <UserTag style={{ color: 'white', paddingRight: '5px' }}>
-                  <AiOutlineUser style={{ marginLeft: '5px' }} />
-                  Khoa Nguyen
-                </UserTag>
-                <UserTag style={{ color: 'white', paddingRight: '5px' }}>
-                  <AiOutlineUser style={{ marginLeft: '5px' }} />
-                  Van Tran
-                </UserTag>
-                <UserTag style={{ color: 'white', paddingRight: '5px' }}>
-                  <AiOutlineUser style={{ marginLeft: '5px' }} />
-                  Huy Tran
-                </UserTag>
-                <UserTag style={{ color: 'white', paddingRight: '5px' }}>
-                  <AiOutlineUser style={{ marginLeft: '5px' }} />
-                  Nam Nguyen
-                </UserTag>
-              </InputContainer>
+              <MultipleSelect options={options} onChange={handleChange} />
             </FieldRight>
           </Col>
         </Row>

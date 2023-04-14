@@ -1,4 +1,4 @@
-import { Table } from 'antd'
+import { Table, ContentLayout } from 'antd'
 const columns = [
   {
     title: 'Request for day',
@@ -27,18 +27,21 @@ const columns = [
         ],
       },
     ],
+
     // specify the condition of filtering result
     // here is that finding the name started with `value`
     onFilter: (value, record) => 0 === record.request_day.indexOf(value),
     sorter: (a, b) => a.request_day.length - b.request_day.length,
     sortDirections: ['descend'],
   },
+
   {
     title: 'Quantity',
     dataIndex: 'quantity',
     defaultSortOrder: 'descend',
     sorter: (a, b) => a.quantity - b.quantity,
   },
+
   {
     title: 'Requester',
     dataIndex: 'requester',
@@ -54,6 +57,7 @@ const columns = [
     ],
     onFilter: (value, record) => 0 === record.requester.indexOf(value),
   },
+
   {
     title: 'Status',
     dataIndex: 'status',
@@ -69,6 +73,7 @@ const columns = [
     ],
     onFilter: (value, record) => 0 === record.status.indexOf(value),
   },
+
   {
     title: 'Request date',
     dataIndex: 'request_date',
@@ -84,6 +89,7 @@ const columns = [
     ],
     onFilter: (value, record) => 0 === record.request_date.indexOf(value),
   },
+
   {
     title: 'Actions',
     dataIndex: 'actions',
@@ -100,6 +106,7 @@ const columns = [
     onFilter: (value, record) => 0 === record.actions.indexOf(value),
   },
 ]
+
 const data = [
   {
     key: '1',
@@ -120,10 +127,18 @@ const data = [
     actions: 'Create Delete Edit',
   },
 ]
-const onChange = (pagination, filters, sorter, extra) => {
-  console.log('params', pagination, filters, sorter, extra)
+
+const FormReviewRequest = () => {
+  const onChange = (pagination, filters, sorter, extra) => {
+    console.log('params', pagination, filters, sorter, extra)
+  }
+  return (
+    <>
+      <ContentLayout>
+        <Table columns={columns} dataSource={data} onChange={onChange} />
+      </ContentLayout>
+    </>
+  )
 }
-const FormReviewRequest = () => (
-  <Table columns={columns} dataSource={data} onChange={onChange} />
-)
+
 export default FormReviewRequest
