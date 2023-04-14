@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import FormReviewRequest from './pages/Account/Request/FormReviewRequest'
 import Dashboard from './pages/Dashboard/Dashboard'
+import ListGroup from './pages/Manager/ListGroup'
 import ManagerGroupDetail from './pages/Manager/ManagerGroupDetail'
 import Notification from './pages/Manager/Notification'
 import CreateMember from './pages/Member/CreateMember'
@@ -44,6 +45,7 @@ export default function App() {
             element={<FormReviewRequest />}
             path='/account/list-request'
           />
+          <Route element={<ListGroup />} path='manager/groups' />
         </Routes>
       </MainLayouts>
     </BrowserRouter>
