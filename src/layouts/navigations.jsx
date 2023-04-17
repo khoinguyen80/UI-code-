@@ -48,9 +48,9 @@ export const navigations = [
     children: [
       {
         key: 6,
-        label: <Link to='members'>Members</Link>,
+        label: <Link to='manager/members'>Members</Link>,
         icon: <UserOutlined />,
-        path: 'members',
+        path: 'manager/members',
       },
       {
         key: 7,

@@ -1,11 +1,11 @@
-import React from 'react'
-import { Row, Col, Typography } from 'antd'
 import {
   ArrowRightOutlined,
   CheckOutlined,
   CloseOutlined,
   UndoOutlined,
 } from '@ant-design/icons'
+import { Row, Col, Typography } from 'antd'
+import React from 'react'
 
 const { Title } = Typography
 

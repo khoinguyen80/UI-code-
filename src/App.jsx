@@ -2,14 +2,16 @@ import MainLayouts from '@root/layouts/MainLayout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import DayoffDetail from './pages/Account/DayoffDetail'
 import FormReviewRequest from './pages/Account/Request/FormReviewRequest'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ListGroup from './pages/Manager/ListGroup'
 import ManagerGroupDetail from './pages/Manager/ManagerGroupDetail'
 import Notification from './pages/Manager/Notification'
 import CreateMember from './pages/Member/CreateMember'
+import ManagerMember from './pages/Member/ManagerMember'
+import MemberDetail from './pages/Member/MemberDetail'
 import CreateRequest from './pages/User/CreateRequest'
-import DayoffDetail from './pages/Account/DayoffDetail'
 
 export default function App() {
   return (
@@ -47,6 +49,12 @@ export default function App() {
             path='/account/list-request'
           />
           <Route element={<ListGroup />} path='manager/groups' />
+          <Route exact element={<ManagerMember />} path='manager/members' />
+          <Route
+            exact
+            element={<MemberDetail />}
+            path='manager/members/detail'
+          />
           <Route
             exact
             element={<DayoffDetail />}
