@@ -9,6 +9,7 @@ import ManagerGroupDetail from './pages/Manager/ManagerGroupDetail'
 import Notification from './pages/Manager/Notification'
 import CreateMember from './pages/Member/CreateMember'
 import CreateRequest from './pages/User/CreateRequest'
+import DayoffDetail from './pages/Account/DayoffDetail'
 
 export default function App() {
   return (
@@ -46,6 +47,11 @@ export default function App() {
             path='/account/list-request'
           />
           <Route element={<ListGroup />} path='manager/groups' />
+          <Route
+            exact
+            element={<DayoffDetail />}
+            path='/account/dayoff/detail'
+          />
         </Routes>
       </MainLayouts>
     </BrowserRouter>
