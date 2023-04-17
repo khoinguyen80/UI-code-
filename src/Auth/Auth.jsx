@@ -1,25 +1,39 @@
 import image from '@root/assets/Login.jpg'
-import { loginRequest } from '@root/redux/actions'
-import { Checkbox, Form, Input, Button } from 'antd'
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { Checkbox, Form, Input, Button, notification } from 'antd'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthStyled } from './Auth.styled'
-
 const Auth = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const navigate = useNavigate()
+  const token = localStorage.getItem('refresh_token')
 
-  const dispatch = useDispatch()
-  const handleSubmitForm = (e) => {
-    e.preventDefault()
-    dispatch(loginRequest(username, password))
+  const handleSubmitForm = async (e) => {
+    try {
+      const body = {
+        email: e.email,
+        password: e.password,
+      }
+      const results = await axios.post(
+        'http://localhost:4000/api/admin/login',
+        body
+      )
+      // eslint-disable-next-line yoda
+      if (results.status === 200) {
+        localStorage.setItem('refresh_token', results.data.refresh_token)
+        notification.success({ message: results.data.msg })
+        navigate('/dashboard')
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo)
     toast.error('Login failed')
   }
+  if (token) return <></>
   return (
     <AuthStyled className='login-page'>
       <div className='login-box'>
@@ -35,25 +49,17 @@ const Auth = () => {
           <p className='form-title'>Welcome back</p>
           <p>Login to the Dashboard</p>
           <Form.Item
-            name='username'
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            name='email'
+            rules={[{ required: true, message: 'Please input your email!' }]}
           >
-            <Input
-              placeholder='Username'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+            <Input placeholder='email' />
           </Form.Item>
 
           <Form.Item
             name='password'
             rules={[{ required: true, message: 'Please input your password!' }]}
           >
-            <Input.Password
-              placeholder='Password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <Input.Password placeholder='Password' />
           </Form.Item>
 
           <Form.Item name='remember' valuePropName='checked'>

@@ -2,6 +2,7 @@ import MainLayouts from '@root/layouts/MainLayout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Auth from './Auth/Auth'
 import DayoffDetail from './pages/Account/DayoffDetail'
 import FormReviewRequest from './pages/Account/Request/FormReviewRequest'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -14,6 +15,8 @@ import MemberDetail from './pages/Member/MemberDetail'
 import CreateRequest from './pages/User/CreateRequest'
 
 export default function App() {
+  const token = localStorage.getItem('refresh_token')
+
   return (
     <BrowserRouter>
       <ToastContainer
@@ -30,6 +33,7 @@ export default function App() {
       />
       <MainLayouts>
         <Routes>
+          {!token && <Route exact element={<Auth />} path='/login' />}
           <Route exact element={<Dashboard />} path='/dashboard' />
           <Route
             exact
