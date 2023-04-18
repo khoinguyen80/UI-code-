@@ -69,7 +69,7 @@ export default function App() {
           <Route
             exact
             element={<MemberDetail />}
-            path='manager/members/detail'
+            path='manager/members/detail/:id'
           />
           <Route
             exact

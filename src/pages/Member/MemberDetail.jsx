@@ -1,5 +1,8 @@
-import { Button, Form, Input } from 'antd'
-import React from 'react'
+import { Button, Form, Input, Modal } from 'antd'
+import axios from 'axios'
+import React, { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+
 const layout = {
   labelCol: {
     span: 8,
@@ -19,12 +22,66 @@ const validateMessages = {
 }
 /* eslint-enable no-template-curly-in-string */
 
-const onFinish = (values) => {
-  console.log(values)
-}
 export default function MemberDetail() {
+  const { id } = useParams()
+  const [form] = Form.useForm()
+
+  const navigate = useNavigate()
+  const token = localStorage.getItem('refresh_token')
+  const success = () => {
+    Modal.success({
+      content: 'Update Staff Successfully',
+      onOk: () => {
+        navigate('/manager/members')
+      },
+    })
+  }
+
+  const getStaffDetail = async () => {
+    try {
+      const getStaff = await axios.get(
+        `http://localhost:5000/api/manager/getOneStaff/${id}`,
+        { headers: { Authorization: token } }
+      )
+      if (200 !== getStaff.status) return
+      form.setFieldsValue({
+        fullName: getStaff.data.fullName,
+        email: getStaff.data.email,
+        slackId: getStaff.data.slackId,
+      })
+      console.log('fhjgbdjfbdf', getStaff.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const submitUpdateMember = async (e) => {
+    try {
+      const body = {
+        fullName: e.fullName,
+        email: e.email,
+        slackId: e.slackId,
+      }
+      await axios.patch(
+        `http://localhost:5000/api/manager/updateStaff/${id}`,
+        body,
+        { headers: { Authorization: token } }
+      )
+      success()
+      return
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    if (id) {
+      getStaffDetail()
+    }
+  }, [id])
   return (
     <Form
+      form={form}
       {...layout}
       name='nest-messages'
       style={{
@@ -32,44 +89,35 @@ export default function MemberDetail() {
         padding: '15px 10px 60px',
       }}
       validateMessages={validateMessages}
-      onFinish={onFinish}
+      onFinish={submitUpdateMember}
     >
       <Form.Item
-        name={['user', 'firstName']}
-        label='First_name'
+        label='Full Name'
+        name='fullName'
+
         // rules={[
         //   {
         //     required: true,
         //   },
         // ]}
       >
-        <Input defaultValue={'John'} />
+        <Input />
       </Form.Item>
-      <Form.Item
-        name={['user', 'lastName']}
-        label='Last_name'
-        // rules={[
-        //   {
-        //     required: true,
-        //   },
-        // ]}
-      >
-        <Input defaultValue={'Brown'} />
-      </Form.Item>
+
       <Form.Item
         label='Email'
-        name={['user', 'email']}
+        name='email'
         rules={[
           {
             type: 'email',
           },
         ]}
       >
-        <Input defaultValue={'john@gmail.com'} />
+        <Input />
       </Form.Item>
 
-      <Form.Item label='Slack id' name={['user', 'slackId']}>
-        <Input defaultValue={'312421'} />
+      <Form.Item label='Slack ID' name='slackId'>
+        <Input />
       </Form.Item>
       <Form.Item
         wrapperCol={{
