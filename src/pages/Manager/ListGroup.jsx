@@ -2,16 +2,8 @@ import ContentLayout from '@root/layouts/ContentLayout'
 import { Col, Row, Button, Table } from 'antd'
 import React from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 import { ColStyled } from './Manager.styled'
-// import { AiOutlineClose } from 'react-icons/ai'
-// import {
-//   ColStyled,
-//   FieldLeft,
-//   FieldRight,
-//   InputContainer,
-//   SubTitle,
-//   UserTag,
-// } from './ManagerGroupDetail'
 
 export default function ListGroup() {
   const dataSource = [
@@ -34,6 +26,7 @@ export default function ListGroup() {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
+      render: (text) => <Link to={'detail'}>{text}</Link>,
     },
     {
       title: 'Member(s)',
@@ -64,7 +57,7 @@ export default function ListGroup() {
         <Row>
           <Col span={24}>
             <ColStyled>
-              <Button type='primary'>+ New Member</Button>
+              <Button type='primary'>+ New Group</Button>
             </ColStyled>
           </Col>
         </Row>

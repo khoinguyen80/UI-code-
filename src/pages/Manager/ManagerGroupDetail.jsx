@@ -3,6 +3,7 @@ import MultipleSelect from '@root/components/MultipleSelect/MultipleSelect'
 import ContentLayout from '@root/layouts/ContentLayout'
 import { Col, Row, Input, Button } from 'antd'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { ColStyled, FieldLeft, FieldRight, SubTitle } from './Manager.styled'
 const { TextArea } = Input
 
@@ -36,7 +37,9 @@ export default function ManagerGroupDetail() {
           </Col>
           <Col span={18}>
             <ColStyled>
-              <Button type='primary'>+ New Member</Button>
+              <Link to={'/createmember'}>
+                <Button type='primary'>+ New Member</Button>
+              </Link>
             </ColStyled>
           </Col>
         </Row>
