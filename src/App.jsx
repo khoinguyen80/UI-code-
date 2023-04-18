@@ -2,7 +2,13 @@ import MainLayouts from '@root/layouts/MainLayout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+
+import ModalDialog from './components/Modal/ModalDialog'
+import ModalRequest from './components/Modal/ModalRequest'
+import Workspaces from './components/WorkSpaces/Workspaces'
+import WorkspaceDetails from './components/WorkSpaces/WorkspacesDetail'
 import Auth from './Auth/Auth'
+
 import DayoffDetail from './pages/Account/DayoffDetail'
 import FormReviewRequest from './pages/Account/Request/FormReviewRequest'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -49,6 +55,12 @@ export default function App() {
           />
           <Route
             exact
+            element={<WorkspaceDetails />}
+            path='/workspacesDetail'
+          />
+
+          <Route
+            exact
             element={<FormReviewRequest />}
             path='/account/list-request'
           />
@@ -64,6 +76,9 @@ export default function App() {
             element={<DayoffDetail />}
             path='/account/dayoff/detail'
           />
+          <Route exact element={<Workspaces />} path='/workspaces' />
+          <Route exact element={<ModalDialog />} path='/modal' />
+          <Route exact element={<ModalRequest />} path='/modalrequest' />
         </Routes>
       </MainLayouts>
     </BrowserRouter>
