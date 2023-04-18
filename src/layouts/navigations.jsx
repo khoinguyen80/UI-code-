@@ -34,9 +34,9 @@ export const navigations = [
       },
       {
         key: 4,
-        label: <Link to='/daysoff'>History Day Off</Link>,
+        label: <Link to='account/history-day-off'>History Day Off</Link>,
         icon: <HistoryOutlined />,
-        path: 'daysoff',
+        path: 'history-day-off',
       },
     ],
   },
